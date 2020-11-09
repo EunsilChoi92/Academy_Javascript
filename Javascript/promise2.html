@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function method1() {
+            return new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                    resolve(10);
+                    reject(20);
+                }, 2000);
+            });
+
+        }
+
+        function method2(val) {
+            return new Promise(function(resolve) {
+                setTimeout(function() {
+                    resolve(val + 10);
+                }, 1000);
+            });
+        }
+
+
+        // var a = method1();
+        // console.log(a);
+
+        // var b = method2(a);
+        // method2(b);
+
+        // console.log('hahahah');
+
+        var a = method1();
+        a.then(function(data) {
+            console.log('data: ' + data);
+
+            var b = method2(data);
+            b.then(function(data2) {
+                console.log('data2: ' + data2);
+            })
+                console.log('haha');
+        }).catch(function(err) {
+            console.log('err : ' + err);
+        }).then(function() {
+            console.log('finally');
+        })
+
+    </script>
+</body>
+</html>

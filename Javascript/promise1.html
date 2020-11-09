@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function method1() {
+            setTimeout(function() {
+                return 10;
+                //console.log('method1');
+            }, 2000);
+        }
+
+        function method2(val) {
+            setTimeout(function() {
+                //console.log('method2');
+                return val + 10;
+            }, 1000);
+        }
+
+        var a = method1();
+        console.log(a);
+
+        var b = method2(a);
+        method2(b);
+
+        console.log('hahahah');
+    </script>
+</body>
+</html>

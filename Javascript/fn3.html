@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function My() {
+            this.age = 10;
+            this.fn = function() {
+                console.log(this);
+            }
+        }
+
+        // My 객체가 console에 찍힘
+        var obj = new My();
+        console.log('obj.age : ' + obj.age);
+        console.log('window.age : ' + window.age);
+        
+        
+
+    </script>
+</body>
+</html>

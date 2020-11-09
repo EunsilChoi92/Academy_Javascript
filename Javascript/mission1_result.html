@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = {
+            val : [2, 6, 8, 10, 19, 5],
+            filter: function(fn) {
+                var temp = [];
+                for(var i=0; i<this.val.length; i++) {
+                    var result = fn(this.val[i]);
+                    console.log('result : ' + result);
+
+                    if(result) {
+                        temp.push(this.val[i]);
+                    }
+                }
+                return temp;
+            }
+        }
+
+        var arr2 = arr.filter(function(item) {
+
+            return item < 10;
+        })
+
+        console.log(arr2);
+
+        // --------------------------------------
+
+        Array.prototype.filter = function(callback) {
+            var temp = [];
+            for(var i=0; i<this.length; i++) {
+                var result = callback(this[i]);
+
+                if(result) {
+                    temp.push(this[i]);
+                }
+            }
+
+            return temp;
+        }
+
+        var arr3 = [1, 10, 3, 7, 4];
+        var arr4 = arr3.filter(function(item) {
+            return item > 5;
+        });
+    
+        console.log(arr4);
+    </script>
+</body>
+</html>

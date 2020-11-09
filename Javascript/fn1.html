@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 자바스크립트에서 객체 만들기
+        // 자바스크립트는 동적 프로토타입 기반 객체 지향 언어
+
+        function Obj() {
+        }
+    
+        var abc = new Obj();
+
+        Obj.prototype.method1 = function() {
+            console.log('Obj 객체의 method1입니다.');
+        };
+
+        abc.method1();
+
+
+        function MyFn() {
+            this.name = '은찌리';
+            this.method2 = function() {
+                console.log(this.name);
+                let method3 = function() {
+                    return 'method3 리턴';
+                }
+            }
+        }
+
+        var efg = new MyFn();
+
+        MyFn.prototype.method1 = function() {
+            console.log('method1 : ' + this.name); 
+        }
+
+        efg.method1(); 
+        efg.method2();
+        efg.method2().method3;
+    </script>
+</body>
+</html>

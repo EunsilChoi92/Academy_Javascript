@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 자바스크립트에서 var는 일반적으로 아는 block 단위의 scope가 아니라
+        // 함수 단위의 scope를 가짐
+        function main() {
+            for(var i=0; i<5; i++) {
+                var temp = i;
+            }
+            console.log('i : ' + i);
+            console.log(temp);
+        }
+        main();
+
+        // 함수를 벗어났으므로 temp 사용 불가
+        console.log('outside temp : ' + temp);
+    </script>
+</body>
+</html>

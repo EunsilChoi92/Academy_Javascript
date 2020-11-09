@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function method1() {
+            return new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                    resolve(10);
+                    reject(20);
+                }, 1500);
+            });
+
+        }
+
+        function method2(val) {
+            return new Promise(function(resolve) {
+                setTimeout(function() {
+                    resolve(val + 10);
+                }, 1000);
+            });
+        }
+
+        var a = new Promise(function(resolve) {
+            setTimeout(function() {
+                resolve(10);
+            }, 2000);
+        })
+
+        function method3() {
+            return a;
+        }
+
+        async function fn2() {
+            var data3 = await method3();
+            console.log('data3 : ' + data3)
+        }
+
+        fn2();
+
+        // var fn = async() => { }
+        async function fn() {
+            var data = await method1();
+            console.log('data : ' + data);
+
+            var data2 = await method2(data);
+            console.log('data2 : ' + data2);
+            console.log('haha');
+            console.log('finally');
+        }
+
+       
+        fn();
+        console.log('ggg');
+    </script>
+</body>
+</html>
